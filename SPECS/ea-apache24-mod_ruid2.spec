@@ -32,7 +32,7 @@ Conflicts: %{ns_name}-mod_fcgid
 Conflicts: %{ns_name}-mod_cache
 Provides: %{ns_name}-exec_code_asuser
 Conflicts: %{ns_name}-exec_code_asuser
-Conflicts: %{ns_name}-mod_suexec %{ns_name}-mpm_itk
+Conflicts: %{ns_name}-mod_suexec %{ns_name}-mpm_itk %{ns_name}-mod_suphp
 
 Patch0: 0001-mailman-compatibility.patch
 Patch1: 0002-added-rgroupinherit-flag.patch
