@@ -7,7 +7,7 @@ Name: %{ns_name}-%{module_name}
 Version: 0.9.8
 Vendor: cPanel, Inc.
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4558 for more details
-%define release_prefix 20
+%define release_prefix 21
 Release: %{release_prefix}%{?dist}.cpanel
 Group: System Environment/Daemons
 URL: http://sourceforge.net/projects/mod-ruid/
@@ -28,10 +28,11 @@ Requires: %{ns_name}-mpm = forked
 Requires: %{ns_name}-mmn = %{_httpd_mmn}
 Requires: %{ns_name} >= 2.4.0 libcap
 Obsoletes: mod_ruid mod_ruid2
-Conflicts: %{ns_name}-mod_suexec %{ns_name}-mod_suphp %{ns_name}-mod_mpm_itk
 Conflicts: %{ns_name}-mod_fcgid
 Conflicts: %{ns_name}-mod_cache
 Provides: %{ns_name}-exec_code_asuser
+Conflicts: %{ns_name}-exec_code_asuser
+Conflicts: %{ns_name}-mod_suphp
 
 Patch0: 0001-mailman-compatibility.patch
 Patch1: 0002-added-rgroupinherit-flag.patch
@@ -95,6 +96,9 @@ fi
 fi
 
 %changelog
+* Mon Aug 11 2025 Julian Brown <julian.brown@webpros.com> - 0.9.8-21
+- EA4-97: Adjust exec_code_asuser
+
 * Tue May 09 2023 Brian Mendoza <brian.mendoza@cpanel.net> - 0.9.8-20
 - ZC-10936: Clean up Makefile and remove debug-package-nil
 
